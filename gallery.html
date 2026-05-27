@@ -30,6 +30,7 @@
 
     <h2>Book Gallery</h2>
 
+    <div class="table-wrapper">
     <table border="1">
 
       <caption>
@@ -187,6 +188,7 @@
       </tr>
 
     </table>
+    </div><!-- /.table-wrapper -->
 
 
     <div class="cart-buttons">
@@ -258,6 +260,37 @@
     </p>
 
   </footer>
+
+  <!-- =====================
+       VIEW CART MODAL
+  ===================== -->
+  <div
+    id="cart-modal"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    hidden>
+
+    <div class="modal-box">
+
+      <!-- Header -->
+      <div class="modal-header">
+        <h3 id="modal-title">&#128722; Your Cart</h3>
+        <button type="button" id="modal-close" aria-label="Close cart">&times;</button>
+      </div>
+
+      <!-- Cart item list (populated by JS) -->
+      <div class="modal-body" id="modal-body"></div>
+
+      <!-- Footer with total + close -->
+      <div class="modal-footer">
+        <p id="modal-total"></p>
+        <button type="button" id="modal-close-btn">Close</button>
+      </div>
+
+    </div>
+  </div>
 
   <script src="script.js"></script>
 

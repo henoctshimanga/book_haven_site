@@ -26,12 +26,14 @@
 
     <section>
       <h2>Business Hours</h2>
-      <table border="1">
-        <tr><th>Day</th><th>Hours</th></tr>
-        <tr><td>Monday - Friday</td><td>9:00 AM - 8:00 PM</td></tr>
-        <tr><td>Saturday</td><td>10:00 AM - 6:00 PM</td></tr>
-        <tr><td>Sunday</td><td>12:00 PM - 5:00 PM</td></tr>
-      </table>
+      <div class="table-wrapper">
+        <table border="1">
+          <tr><th>Day</th><th>Hours</th></tr>
+          <tr><td>Monday - Friday</td><td>9:00 AM - 8:00 PM</td></tr>
+          <tr><td>Saturday</td><td>10:00 AM - 6:00 PM</td></tr>
+          <tr><td>Sunday</td><td>12:00 PM - 5:00 PM</td></tr>
+        </table>
+      </div><!-- /.table-wrapper -->
     </section>
 
     <section>
@@ -52,8 +54,8 @@
         <input type="checkbox" id="custom-order" name="custom-order">
         <label for="custom-order">Custom Order Request</label><br><br>
 
-        <button type="submit">Submit</button>
-        <button type="reset">Clear Form</button>
+        <button type="submit" class="primary-btn">Submit</button>
+        <button type="reset" class="secondary-btn">Clear Form</button>
       </form>
     </section>
   </main>

@@ -293,21 +293,220 @@ footer form input {
     margin: 0;
 }
 
+/* Input border feedback states */
+footer form input.input-error {
+    border: 2px solid #f87171;
+    box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.25);
+    outline: none;
+}
+
+footer form input.input-success {
+    border: 2px solid #4ade80;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.25);
+    outline: none;
+}
+
+/* Inline validation message
+   flex-basis:100% forces it onto its own row
+   inside the flex footer form */
+.subscribe-msg {
+    flex-basis: 100%;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    min-height: 1.2em;    /* reserves space — prevents layout jump */
+}
+
+.subscribe-msg--error {
+    color: #fca5a5;        /* light red — readable on dark footer */
+}
+
+.subscribe-msg--success {
+    color: #86efac;        /* light green — readable on dark footer */
+}
+
 footer p {
     margin: 10px 0;
+}
+
+/* =========================
+   NOTIFICATION MODAL
+========================= */
+
+/* Narrower box — just a message, no list */
+.notif-box {
+    max-width: 360px;
+}
+
+/* ── Header colour per type ── */
+.notif-box--success .modal-header { background-color: #15803d; }   /* green  */
+.notif-box--info    .modal-header { background-color: #0f2d3c; }   /* dark   */
+.notif-box--warning .modal-header { background-color: #b45309; }   /* amber  */
+.notif-box--error   .modal-header { background-color: #b91c1c; }   /* red    */
+
+/* Message body — centred text */
+.notif-body {
+    text-align: center;
+    padding: 24px 20px;
+}
+
+.notif-body p {
+    margin: 0;
+    font-size: 1rem;
+    color: #1f2937;
+}
+
+/* Footer — single OK button centred */
+.notif-footer {
+    justify-content: center;
+    padding: 14px 20px;
+}
+
+/* =========================
+   CART MODAL
+========================= */
+
+/* Full-screen dark backdrop */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Hide the modal when the hidden attribute is present */
+.modal-overlay[hidden] {
+    display: none;
+}
+
+/* Centered white popup card */
+.modal-box {
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 480px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dark header bar */
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0f2d3c;
+    color: white;
+    padding: 16px 20px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+/* × close button in the header */
+.modal-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+.modal-header button:hover {
+    color: #f4c96b;
+}
+
+/* Scrollable item list */
+.modal-body {
+    padding: 20px;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.modal-body > p {
+    margin: 0;
+    color: #777;
+    font-style: italic;
+}
+
+/* One row per cart item */
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item-row:last-child {
+    border-bottom: none;
+}
+
+.cart-item-name {
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.cart-item-price {
+    color: #0f2d3c;
+    font-weight: bold;
+}
+
+/* Footer with total and close button */
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-top: 2px solid #f4c96b;
+    background-color: #f8f4ef;
+}
+
+#modal-total {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #0f2d3c;
 }
 
 /* =========================
    RESPONSIVE DESIGN
 ========================= */
 
+/* ── Tablet and below (≤ 768px) ── */
 @media (max-width: 768px) {
 
+    /* Header */
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Give main content side padding so text
+       doesn't run edge-to-edge on phones */
+    main {
+        padding: 20px 15px;
+    }
+
+    /* Section headings scale down */
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    /* Featured books: one card per row */
     figure {
         flex: 1 1 100%;
         max-width: 100%;
     }
 
+    /* Author spotlight: photo stacks above text */
     .author-spotlight {
         flex-direction: column;
     }
@@ -317,21 +516,109 @@ footer p {
         height: auto;
     }
 
-    table,
-    tr,
-    td,
-    th {
-        display: block;
-        width: 100%;
+    /* Scrollable table wrapper — preserves
+       full table layout while allowing swipe */
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 20px;
+        border-radius: 8px;
     }
 
-    nav a {
-        display: block;
-        margin: 10px 0;
+    /* View Cart: full-width touch target */
+    #view-cart {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* Gallery cart action buttons: stack vertically */
+    .cart-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Footer newsletter: stack label → input → button */
+    footer form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer form input {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    /* Modal item list: shorter on tablets */
+    .modal-body {
+        max-height: 220px;
+    }
+
+}
+
+/* ── Phone (≤ 480px) ── */
+@media (max-width: 480px) {
+
+    /* Tighter header padding, smaller logo */
+    header {
+        padding: 15px 12px;
+    }
+
+    header img {
+        width: 90px;
     }
 
     header h1 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+    }
+
+    /* Wider content area on narrow phones */
+    main {
+        width: 100%;
+        padding: 16px 12px;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    /* Bigger tap targets for all buttons */
+    button {
+        padding: 12px 18px;
+        font-size: 0.95rem;
+        min-height: 44px;
+    }
+
+    /* Tighter form card */
+    form {
+        padding: 15px 12px;
+    }
+
+    /* Modal: almost full-screen width */
+    .modal-box {
+        width: 96%;
+    }
+
+    .modal-header {
+        padding: 12px 14px;
+    }
+
+    .modal-body {
+        padding: 14px;
+        max-height: 180px;
+    }
+
+    /* Modal footer: stack total above close button */
+    .modal-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 12px 14px;
+        text-align: center;
+    }
+
+    /* Footer padding */
+    footer {
+        padding: 20px 12px;
     }
 
 }
