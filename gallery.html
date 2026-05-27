@@ -6,10 +6,14 @@
   <title>Book Haven Bookstore | Gallery</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
   <header>
     <img src="assets/logo.png" alt="Book Haven Bookstore logo" width="120">
+
     <h1>Our Books</h1>
+
     <nav aria-label="Main navigation">
       <a href="index.html">Home</a> |
       <a href="gallery.html">Gallery</a> |
@@ -19,59 +23,243 @@
   </header>
 
   <main>
-    <button type="button">View Cart</button>
+
+    <button type="button" id="view-cart">
+      View Cart
+    </button>
+
     <h2>Book Gallery</h2>
+
     <table border="1">
-      <caption>Items available from Book Haven Bookstore</caption>
+
+      <caption>
+        Items available from Book Haven Bookstore
+      </caption>
+
       <tr>
-        <th>Image</th><th>Book</th><th>Description</th><th>Action</th>
+        <th>Image</th>
+        <th>Book</th>
+        <th>Description</th>
+        <th>Action</th>
       </tr>
+
+      <!-- BOOK 1 -->
+
       <tr>
-        <td><img src="assets/book1.png" alt="The Alchemist book cover" width="120"></td>
-        <td>The Alchemist<br>$14.99</td>
-        <td>A thoughtful fiction title for readers who enjoy inspiring journeys.</td>
-        <td><button type="button" class="add-cart">Add to Cart</button></td>
+
+        <td>
+          <img
+            src="assets/book1.png"
+            alt="The Alchemist book cover"
+            width="120">
+        </td>
+
+        <td>
+          The Alchemist
+          <br>
+          $14.99
+        </td>
+
+        <td>
+          A thoughtful fiction title for readers who enjoy inspiring journeys.
+        </td>
+
+        <td>
+          <button
+            type="button"
+            class="add-cart"
+            data-item="The Alchemist"
+            data-price="14.99">
+
+            Add to Cart
+
+          </button>
+        </td>
+
       </tr>
+
+
+      <!-- BOOK 2 -->
+
       <tr>
-        <td><img src="assets/book2.png" alt="1984 book cover" width="120"></td>
-        <td>1984<br>$12.99</td>
-        <td>A classic novel for readers interested in society and power.</td>
-        <td><button type="button" class="add-cart">Add to Cart</button></td>
+
+        <td>
+          <img
+            src="assets/book2.png"
+            alt="1984 book cover"
+            width="120">
+        </td>
+
+        <td>
+          1984
+          <br>
+          $12.99
+        </td>
+
+        <td>
+          A classic novel for readers interested in society and power.
+        </td>
+
+        <td>
+          <button
+            type="button"
+            class="add-cart"
+            data-item="1984"
+            data-price="12.99">
+
+            Add to Cart
+
+          </button>
+        </td>
+
       </tr>
+
+
+      <!-- BOOK 3 -->
+
       <tr>
-        <td><img src="assets/book3.png" alt="Atomic Habits book cover" width="120"></td>
-        <td>Atomic Habits<br>$15.99</td>
-        <td>A practical personal development book about building better habits.</td>
-        <td><button type="button" class="add-cart">Add to Cart</button></td>
+
+        <td>
+          <img
+            src="assets/book3.png"
+            alt="Atomic Habits book cover"
+            width="120">
+        </td>
+
+        <td>
+          Atomic Habits
+          <br>
+          $15.99
+        </td>
+
+        <td>
+          A practical personal development book about building better habits.
+        </td>
+
+        <td>
+          <button
+            type="button"
+            class="add-cart"
+            data-item="Atomic Habits"
+            data-price="15.99">
+
+            Add to Cart
+
+          </button>
+        </td>
+
       </tr>
+
+
+      <!-- BOOK 4 -->
+
       <tr>
-        <td><img src="assets/book4.png" alt="Children's story book cover" width="120"></td>
-        <td>Kids Story Time Pick<br>$9.99</td>
-        <td>A family-friendly children's book for young readers.</td>
-        <td><button type="button" class="add-cart">Add to Cart</button></td>
+
+        <td>
+          <img
+            src="assets/book4.png"
+            alt="Children's story book cover"
+            width="120">
+        </td>
+
+        <td>
+          Kids Story Time Pick
+          <br>
+          $9.99
+        </td>
+
+        <td>
+          A family-friendly children's book for young readers.
+        </td>
+
+        <td>
+          <button
+            type="button"
+            class="add-cart"
+            data-item="Kids Story Time Pick"
+            data-price="9.99">
+
+            Add to Cart
+
+          </button>
+        </td>
+
       </tr>
+
     </table>
-    <div>
-      <button type="button" id="clear-cart">Clear Cart</button>
-      <button type="button" id="process-order">Process Order</button>
+
+
+    <div class="cart-buttons">
+
+      <button
+        type="button"
+        id="clear-cart">
+
+        Clear Cart
+
+      </button>
+
+      <button
+        type="button"
+        id="process-order">
+
+        Process Order
+
+      </button>
+
     </div>
+
   </main>
 
+
   <footer>
+
     <form>
-      <label for="newsletter-gallery">Sign up for our newsletter:</label>
-      <input type="email" id="newsletter-gallery" name="newsletter" placeholder="Enter your email">
-      <button type="submit">Subscribe</button>
+
+      <label for="newsletter-gallery">
+        Sign up for our newsletter:
+      </label>
+
+      <input
+        type="email"
+        id="newsletter-gallery"
+        name="newsletter"
+        placeholder="Enter your email">
+
+      <button
+        type="submit"
+        class="subscribe-btn">
+
+        Subscribe
+
+      </button>
+
     </form>
-    <p>Follow us: Facebook | Instagram | Twitter | Email</p>
+
+    <p>
+      Follow us:
+      Facebook |
+      Instagram |
+      Twitter |
+      Email
+    </p>
+
     <nav aria-label="Footer navigation">
+
       <a href="index.html">Home</a> |
       <a href="gallery.html">Gallery</a> |
       <a href="about.html">About Us</a> |
       <a href="events.html">Events</a>
+
     </nav>
-    <p>&copy; 2026 Book Haven Bookstore</p>
+
+    <p>
+      &copy; 2026 Book Haven Bookstore
+    </p>
+
   </footer>
+
   <script src="script.js"></script>
+
 </body>
 </html>

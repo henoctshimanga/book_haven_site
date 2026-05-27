@@ -22,28 +22,33 @@ body {
 header {
     background-color: #0f2d3c;
     color: white;
-    text-align: center;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 header img {
     width: 120px;
-    margin-bottom: 10px;
 }
 
 header h1 {
-    margin-bottom: 15px;
     font-size: 2rem;
 }
 
 nav {
-    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
 }
 
 nav a {
     color: #f4c96b;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 6px;
     font-weight: bold;
 }
 
@@ -80,14 +85,29 @@ p {
 }
 
 /* =========================
-   HOME PAGE
+   HOME PAGE — FEATURED BOOKS
 ========================= */
 
+/* Flex container for the book figures */
+.book-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+/* Force headings inside flex sections to span their own full row */
+.book-grid h2,
+.author-spotlight h2 {
+    flex-basis: 100%;
+    width: 100%;
+}
+
 figure {
-    display: inline-block;
-    width: 30%;
+    flex: 1 1 220px;
+    max-width: calc(33.333% - 14px);
     text-align: center;
-    margin: 10px;
     background-color: white;
     padding: 15px;
     border-radius: 10px;
@@ -104,6 +124,15 @@ figcaption {
     font-weight: bold;
 }
 
+/* Standalone section images (storefront, author photo) */
+section > img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
 ul {
     margin-left: 20px;
 }
@@ -111,6 +140,13 @@ ul {
 /* =========================
    GALLERY PAGE
 ========================= */
+
+/* View Cart button — right-aligned above the table */
+#view-cart {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 15px;
+}
 
 table {
     width: 100%;
@@ -138,6 +174,14 @@ td {
 
 td img {
     border-radius: 8px;
+}
+
+/* Cart action buttons row */
+.cart-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 /* =========================
@@ -198,8 +242,23 @@ blockquote {
     border-radius: 6px;
 }
 
-section img {
+/* Author spotlight — image beside text */
+.author-spotlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.author-spotlight img {
+    flex-shrink: 0;
     border-radius: 10px;
+    margin-bottom: 0;
+}
+
+.author-spotlight p {
+    flex: 1;
+    min-width: 200px;
 }
 
 /* =========================
@@ -214,16 +273,24 @@ footer {
     margin-top: 40px;
 }
 
+/* Newsletter form — horizontal flex row */
 footer form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
     background: none;
     box-shadow: none;
     padding: 0;
     margin-bottom: 20px;
 }
 
-footer input {
+/* Override global input margins inside the footer flex row */
+footer form input {
     width: 250px;
     max-width: 90%;
+    margin: 0;
 }
 
 footer p {
@@ -237,7 +304,17 @@ footer p {
 @media (max-width: 768px) {
 
     figure {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .author-spotlight {
+        flex-direction: column;
+    }
+
+    .author-spotlight img {
         width: 100%;
+        height: auto;
     }
 
     table,
@@ -256,4 +333,5 @@ footer p {
     header h1 {
         font-size: 1.5rem;
     }
+
 }
